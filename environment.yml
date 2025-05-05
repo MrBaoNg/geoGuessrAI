@@ -1,0 +1,17 @@
+name: geoenv
+channels:
+  - defaults
+  - pytorch
+dependencies:
+  - python=3.10
+  - pip
+  - pytorch
+  - torchvision
+  - cudatoolkit=11.7
+  - pillow
+  - requests
+  - pip:
+      - timm
+      - uvicorn
+      - fastapi
+      - git+https://github.com/IDEA-Research/GroundingDINO.git@main
