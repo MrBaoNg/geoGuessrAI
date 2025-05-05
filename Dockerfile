@@ -23,6 +23,13 @@ RUN yarn install --frozen-lockfile
 # Copy application code
 COPY . .
 
+RUN mkdir -p /app/config /app/checkpoints
+
+# Download config + weights
+RUN curl -L "$DINO_CONFIG_URL"  -o /app/config/GroundingDINO_SwinB_OGC.py && \
+    curl -L "$DINO_WEIGHTS_URL" -o /app/checkpoints/groundingdino_swinb_ogc.pth
+
+
 # Expose port 5000 (Express default)
 EXPOSE 5000
 
